@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/Encoding")
 public class Encoding extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -24,45 +24,47 @@ public class Encoding extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("GET 방식으로 실행");
-		
-		String name = request.getParameter("name");
-		response.setContentType("text/html; charset=EUC-KR");
-		
-		PrintWriter wt = response.getWriter();
-		wt.println("<html><head></head><body>");
-		wt.println(name + "님 하이");
-		wt.println("</body></html>");
-		
-		wt.close();
-	}
+   /**
+    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    */
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      // response.getWriter().append("Served at: ").append(request.getContextPath());
+	   
+       System.out.println("doGet 메소드가 실행되었습니다.");
+       request.setCharacterEncoding("EUC-KR");
+       String name = request.getParameter("name");
+      
+      response.setContentType("text/html; charset=EUC-KR");
+      PrintWriter wt = response.getWriter();
+      
+      wt.println("<html><head></head><body>");
+      wt.println(name + "님 하이");
+      wt.println("</body></html>");
+      
+      wt.close();
+   }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
-		System.out.println("POST 방식으로 실행");
-		
-		request.setCharacterEncoding("EUC-KR");
-		
-		String name = request.getParameter("name");
-		
-		response.setContentType("text/html; charset=EUC-KR");
-		PrintWriter wt = response.getWriter();
-		
-		wt.println("<html><head></head><body>");
-		wt.println(name + "님 하이");
-		wt.println("</body></html>");
-		
-		wt.close();
-	}
+   /**
+    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    */
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      // doGet(request, response);
+      
+       System.out.println("doPost 메소드가 실행되었습니다.");
+       
+      request.setCharacterEncoding("EUC-KR");
+      String name = request.getParameter("name");
+      
+      response.setContentType("text/html; charset=EUC-KR");
+      PrintWriter wt = response.getWriter();
+      
+      wt.println("<html><head></head><body>");
+      wt.println(name + "님 하이");
+      wt.println("</body></html>");
+      
+      wt.close();
+   }
 
 }
