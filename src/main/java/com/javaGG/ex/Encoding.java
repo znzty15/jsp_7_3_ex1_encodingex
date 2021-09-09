@@ -32,6 +32,7 @@ public class Encoding extends HttpServlet {
       // response.getWriter().append("Served at: ").append(request.getContextPath());
 	   
        System.out.println("doGet 메소드가 실행되었습니다.");
+       
        request.setCharacterEncoding("EUC-KR");
        String name = request.getParameter("name");
       
